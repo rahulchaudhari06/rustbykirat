@@ -1,20 +1,26 @@
-enum Shape{
-    Rectanle(f64,f64),
-    Circle(f64)
+//options and results
+
+enum CustomOption{
+    Some(i32),
+    None,
 }
 
-fn calculate_area(shape: Shape) -> f64{
-    let area = match shape  {
-        Shape::Circle(r)=> 3.14 * r * r,
-        Shape::Rectanle(a,b )=> a*b,
-    };
-    return area;
-}
-fn main(){
-
-    let rect = Shape::Rectanle(2.0, 4.0);
-    let circle = Shape::Circle(6.0);
-
-    println!("Area of Rectanle is: {} and area of circle is: {}",calculate_area(rect),calculate_area(circle) )
+fn find_first_a(s: String)-> CustomOption {
+    for ( index,char) in s.chars().enumerate() {
+    if char == 'a' {
+            return CustomOption::Some(index as i32);
+        }
+    }
+     return CustomOption::None;
 }
 
+fn main() {
+
+    let index = find_first_a(String::from("rahul"));
+
+    match index {
+          CustomOption::Some(value) => println!("index is {}", value ),
+          CustomOption::None => println!("a was not found ")  
+    }
+
+}
