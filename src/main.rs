@@ -1,15 +1,17 @@
+
  fn main(){
-
-    create_string();
-  
-}
-
-fn create_string(){
     let s1: String = String::from("Hello memory leak");
-    let _s2: String = s1.clone();
+    println!("{}", s1 );
 
-
+    pint_str(s1);
 
     println!("{}", s1 );
 
+
+  
 }
+
+fn pint_str(s2: String){
+
+    println!("{}", s2);
+} 
