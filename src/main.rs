@@ -1,42 +1,27 @@
-/*
+fn main() {
+    // let mut vec = Vec::new();
+    let mut vec = vec![1,2,3,4,5];
+    // vec.push(1);
+    // vec.push(2);
+    // vec.push(3);
+    // vec.push(4);
+    // vec.push(5);
+    vec.remove(3); // removes index 3 i.e. value = 4 from the vector
 
- fn main(){
-    let mut s1: String = String::from("Hello memory leak");
-    println!("{}", s1 );
 
-    s1 = pint_str(s1);
-
-    println!("{}", s1 );
-
-
-  
+    println!("{:?}", vec);
+    println!("{:?}", even_filter(vec))
 }
 
-fn pint_str(s2: String)-> String{
+fn even_filter(vec: Vec<i32>) -> Vec<i32>{
+    let mut new_vec = Vec::new();
 
-    println!("{} pintString", s2);
-    return s2;
-} 
+    for val in vec {
+        if val % 2 == 0 {
+            new_vec.push(val);
+        }
+    }
 
-this code is ugly as we need to return the value and the ownership keeps jumping too much 
-
-*/
-// We should use references and borrowing instead
-
-
-
-fn main(){
-    let mut s1 = String::from("hey there!");
-    // let s2 = &s1;
-
-    println!("{}", s1);
-    do_something( &mut s1);
-    // println!("{}", s1);
-
-}
-
-fn do_something(s2: &mut String) {
-    s2.push_str(" how are you?");
-    println!("{}", s2); //s2 owns the value
+    return new_vec;
 
 }
